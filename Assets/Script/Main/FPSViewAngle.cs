@@ -4,7 +4,7 @@ namespace Script{
 	public class FPSViewAngle : MonoBehaviour{
 		public Vector3 SelfViewAngle{
 			get => transform.eulerAngles;
-			set => transform.eulerAngles = value;
+			private set => transform.eulerAngles = value;
 		}
 
 		public void Rotate(Vector3 rotateAngle){
