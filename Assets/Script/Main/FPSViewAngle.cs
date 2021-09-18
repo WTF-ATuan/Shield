@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Script{
+namespace Script.Main{
 	public class FPSViewAngle : MonoBehaviour{
 		public Vector3 SelfViewAngle{
 			get => transform.eulerAngles;

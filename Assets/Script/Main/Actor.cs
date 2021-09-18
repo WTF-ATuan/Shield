@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Script{
+namespace Script.Main{
 	public class Actor : MonoBehaviour{
 		private FPSMovement movement;
 		private FPSViewAngle viewAngle;

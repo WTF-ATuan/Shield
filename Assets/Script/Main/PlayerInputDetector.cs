@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Script{
+namespace Script.Main{
 	public class PlayerInputDetector : MonoBehaviour{
 		[Tooltip("Player Input") , SerializeField]
 		private FpsInput input;

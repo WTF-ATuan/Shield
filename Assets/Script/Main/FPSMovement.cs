@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Script{
+namespace Script.Main{
 	public class FPSMovement : MonoBehaviour{
 		public Transform SelfPosition => transform;
 
