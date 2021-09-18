@@ -19,6 +19,15 @@ namespace Script.Main{
 
 		private void OnActorCollisionEnter(Collision other){
 			actor.CollisionEnter();
+			EventBus.Post(new Collided(actor));
+		}
+	}
+
+	public class Collided{
+		public Actor actor;
+
+		public Collided(Actor actor){
+			this.actor = actor;
 		}
 	}
 }

@@ -14,6 +14,11 @@ namespace Script.Main{
 			inputDetector = GetComponent<PlayerInputDetector>();
 			rotateView = GetComponent<ActorRotateView>();
 			movement = GetComponent<ActorMovement>();
+			EventBus.Subscribe<Collided>(OnCollided);
+		}
+
+		private void OnCollided(Collided obj){
+			Debug.Log("123");
 		}
 
 		private void Update(){
