@@ -10,9 +10,9 @@ namespace Script.Main{
 			movementRigidbody = GetComponent<Rigidbody>();
 		}
 
-		public void Move(Vector3 targetPosition){
+		public void Move(Vector3 targetPosition, float moveSpeed){
 			var moveDirection = targetPosition.normalized;
-			var moveWorldDirection = SelfPosition.TransformDirection(moveDirection) * 5f;
+			var moveWorldDirection = SelfPosition.TransformDirection(moveDirection) * moveSpeed;
 			var movementVelocity = movementRigidbody.velocity;
 			var moveForce = new Vector3(moveWorldDirection.x - movementVelocity.x, 0f,
 				moveWorldDirection.z - movementVelocity.z);

@@ -12478,6 +12478,7 @@ GameObject:
   - component: {fileID: 1273766503718517}
   - component: {fileID: 1273766503718516}
   - component: {fileID: 1273766503718515}
+  - component: {fileID: 1273766503718519}
   m_Layer: 8
   m_Name: FPSController
   m_TagString: Untagged
@@ -12538,6 +12539,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2748f55f7cf4b749e45a56a09b66fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  viewRotateSpeed: 2
+--- !u!114 &1273766503718519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273766503718514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7f8d4a7d5a475881432b27b2f01f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1275844185598570
@@ -23753,7 +23768,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b0ea9aa64da8c76498ef3b008d0cca1b, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24562,14 +24576,27 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3939356531747251268}
-  - component: {fileID: 3939356531757026214}
+  - component: {fileID: 3939356531747682405}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
+--- !u!65 &3939356531747682405
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939356531747682404}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9183867, y: 3.6535459, z: 0.29186338}
+  m_Center: {x: -0.01, y: -0.11261643, z: 0.082855195}
 --- !u!1 &3939356531747682406
 GameObject:
   m_ObjectHideFlags: 0
@@ -24732,22 +24759,3 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &3939356531757026214
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3939356531747682404}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
