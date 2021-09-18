@@ -2,7 +2,7 @@
 
 namespace Script.Main{
 	public class ActorMovement : MonoBehaviour{
-		public Transform SelfPosition => transform;
+		public Vector3 SelfPosition => transform.position;
 
 		private Rigidbody movementRigidbody;
 
@@ -12,7 +12,7 @@ namespace Script.Main{
 
 		public void Move(Vector3 targetPosition, float moveSpeed){
 			var moveDirection = targetPosition.normalized;
-			var moveWorldDirection = SelfPosition.TransformDirection(moveDirection) * moveSpeed;
+			var moveWorldDirection = transform.TransformDirection(moveDirection) * moveSpeed;
 			var movementVelocity = movementRigidbody.velocity;
 			var moveForce = new Vector3(moveWorldDirection.x - movementVelocity.x, 0f,
 				moveWorldDirection.z - movementVelocity.z);

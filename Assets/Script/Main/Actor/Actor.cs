@@ -5,10 +5,9 @@ namespace Script.Main{
 		private ActorMovement movement;
 		private ActorRotateView rotateView;
 		private PlayerInputDetector inputDetector;
-
+		
 		[SerializeField] private float moveSpeed;
 		[SerializeField] private float viewRotateSpeed;
-		
 		
 
 		private void Start(){
