@@ -1,33 +1,30 @@
-﻿using System;
-using UniRx;
+﻿using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 
 namespace Script.Main{
 	public class ActorCollision : MonoBehaviour{
-		private Actor actor;
-
 		private void Start(){
-			actor = GetComponent<Actor>();
 			gameObject.OnCollisionEnterAsObservable().Subscribe(OnActorCollisionEnter);
 			gameObject.OnCollisionExitAsObservable().Subscribe(OnActorCollisionExit);
 		}
 
-		private void OnActorCollisionExit(Collision other){
-			actor.CollisionExit();
+		private void OnActorCollisionEnter(Collision other){
+			EventBus.Post(new ActorCollided(true, other));
 		}
 
-		private void OnActorCollisionEnter(Collision other){
-			actor.CollisionEnter();
-			EventBus.Post(new Collided(actor));
+		private void OnActorCollisionExit(Collision other){
+			EventBus.Post(new ActorCollided(false, other));
 		}
 	}
 
-	public class Collided{
-		public Actor actor;
+	public class ActorCollided{
+		public bool EnterOrExit{ get; }
+		public Collision Other{ get; }
 
-		public Collided(Actor actor){
-			this.actor = actor;
+		public ActorCollided(bool enterOrExit, Collision other){
+			EnterOrExit = enterOrExit;
+			Other = other;
 		}
 	}
 }

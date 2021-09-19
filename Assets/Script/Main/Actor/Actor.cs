@@ -14,13 +14,9 @@ namespace Script.Main{
 			inputDetector = GetComponent<PlayerInputDetector>();
 			rotateView = GetComponent<ActorRotateView>();
 			movement = GetComponent<ActorMovement>();
-			EventBus.Subscribe<Collided>(OnCollided);
+			EventBus.Subscribe<ActorCollided>(OnCollided);
 		}
-
-		private void OnCollided(Collided obj){
-			Debug.Log("123");
-		}
-
+		
 		private void Update(){
 			RotateActorView();
 		}
@@ -31,8 +27,8 @@ namespace Script.Main{
 
 		private void MoveActor(){
 			var inputData = inputDetector.GetInput();
-			var targetPosition = new Vector3(inputData.Move, 0, inputData.Strafe);
-			movement.Move(targetPosition , moveSpeed);
+			var targetDirection = new Vector3(inputData.Move, 0, inputData.Strafe);
+			movement.Move(targetDirection , moveSpeed);
 		}
 
 		private void RotateActorView(){
@@ -40,9 +36,9 @@ namespace Script.Main{
 			var targetViewAngle = new Vector3(inputData.RotateY, inputData.RotateX, 0);
 			rotateView.Rotate(targetViewAngle , viewRotateSpeed);
 		}
-
-		public void CollisionEnter(){ }
-
-		public void CollisionExit(){ }
+		private void OnCollided(ActorCollided dto){
+			var enterOrExit = dto.EnterOrExit;
+			Debug.Log($"enterOrExit = {enterOrExit}");
+		}
 	}
 }
