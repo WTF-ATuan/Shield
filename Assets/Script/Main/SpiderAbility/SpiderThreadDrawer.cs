@@ -3,17 +3,16 @@
 namespace Script.Main.SpiderAbility{
 	public class SpiderThreadDrawer : MonoBehaviour{
 		private LineRenderer lineRenderer;
+
 		private void Start(){
 			lineRenderer = GetComponent<LineRenderer>();
-			EventBus.Subscribe<RaycastData>(DrawSpiderThread);
+			lineRenderer.positionCount = 2;
+			EventBus.Subscribe<TreadData>(DrawSpiderThread);
 		}
 
-		private void DrawSpiderThread(RaycastData obj){
+		private void DrawSpiderThread(TreadData obj){
 			var vertexPosition = new[]{ obj.OriginPosition, obj.AttachPosition };
 			lineRenderer.SetPositions(vertexPosition);
 		}
-		
-		
-		
 	}
 }
