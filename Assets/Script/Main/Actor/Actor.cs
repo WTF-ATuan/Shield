@@ -19,6 +19,7 @@ namespace Script.Main{
 
 		private void Update(){
 			RotateActorView();
+			JumpActor();
 		}
 
 		private void FixedUpdate(){
@@ -28,7 +29,14 @@ namespace Script.Main{
 		private void MoveActor(){
 			var inputData = inputDetector.GetInput();
 			var targetDirection = new Vector3(inputData.Move, 0, inputData.Strafe);
-			movement.Move(targetDirection, moveSpeed);
+			movement.BasicMove(targetDirection, moveSpeed);
+		}
+
+		private void JumpActor(){
+			var inputData = inputDetector.GetInput();
+			if(inputData.Jump){
+				movement.JumpBehavior(50f);
+			}
 		}
 
 		private void RotateActorView(){
