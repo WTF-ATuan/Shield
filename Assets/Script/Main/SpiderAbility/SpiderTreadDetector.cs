@@ -3,12 +3,11 @@
 namespace Script.Main.SpiderAbility{
 	public class SpiderTreadDetector : MonoBehaviour{
 		[SerializeField] private float treadMaxDistance;
-		
+
 		private void Update(){
 			if(Input.GetMouseButtonDown(0)){
 				CreateTreadData(transform.forward, treadMaxDistance);
 			}
-			Debug.DrawRay(transform.position, transform.forward * treadMaxDistance);
 		}
 
 		public void CreateTreadData(Vector3 direction, float maxDistance){
@@ -17,17 +16,17 @@ namespace Script.Main.SpiderAbility{
 			var attachPosition = hitInfo.point;
 			var position = transform.position;
 			var distance = Vector3.Distance(position, attachPosition);
-			var treadData = new TreadData(distance, position, attachPosition);
-			EventBus.Post(treadData);
+			var treadUpdated = new SpiderTreadUpdated(distance, position, attachPosition);
+			EventBus.Post(treadUpdated);
 		}
 	}
 
-	public class TreadData{
+	public class SpiderTreadUpdated{
 		public float Distance{ get; }
 		public Vector3 OriginPosition{ get; }
 		public Vector3 AttachPosition{ get; }
 
-		public TreadData(float distance, Vector3 originPosition, Vector3 attachPosition){
+		public SpiderTreadUpdated(float distance, Vector3 originPosition, Vector3 attachPosition){
 			Distance = distance;
 			OriginPosition = originPosition;
 			AttachPosition = attachPosition;

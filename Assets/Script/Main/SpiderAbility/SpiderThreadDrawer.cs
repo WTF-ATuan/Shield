@@ -7,10 +7,10 @@ namespace Script.Main.SpiderAbility{
 		private void Start(){
 			lineRenderer = GetComponent<LineRenderer>();
 			lineRenderer.positionCount = 2;
-			EventBus.Subscribe<TreadData>(DrawSpiderThread);
+			EventBus.Subscribe<SpiderTreadUpdated>(DrawSpiderThread);
 		}
 
-		private void DrawSpiderThread(TreadData obj){
+		private void DrawSpiderThread(SpiderTreadUpdated obj){
 			var vertexPosition = new[]{ obj.OriginPosition, obj.AttachPosition };
 			lineRenderer.SetPositions(vertexPosition);
 		}
