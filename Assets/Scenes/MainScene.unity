@@ -1447,6 +1447,7 @@ GameObject:
   - component: {fileID: 343501772}
   - component: {fileID: 343501771}
   - component: {fileID: 343501770}
+  - component: {fileID: 343501773}
   m_Layer: 0
   m_Name: Spider Fire Spot
   m_TagString: Untagged
@@ -1475,7 +1476,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343501768}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 084e9dd655364dfab2cf3ccad966ba09, type: 3}
   m_Name: 
@@ -1598,6 +1599,18 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &343501773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343501768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f1e74b4cf4a414ea99bb8c71537f0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &357797788
 GameObject:
   m_ObjectHideFlags: 0

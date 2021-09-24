@@ -16,17 +16,17 @@ namespace Script.Main.SpiderAbility{
 			var attachPosition = hitInfo.point;
 			var position = transform.position;
 			var distance = Vector3.Distance(position, attachPosition);
-			var treadUpdated = new SpiderTreadUpdated(distance, position, attachPosition);
-			EventBus.Post(treadUpdated);
+			var treadCreated = new SpiderTreadCreated(distance, position, attachPosition);
+			EventBus.Post(treadCreated);
 		}
 	}
 
-	public class SpiderTreadUpdated{
+	public class SpiderTreadCreated{
 		public float Distance{ get; }
 		public Vector3 OriginPosition{ get; }
 		public Vector3 AttachPosition{ get; }
 
-		public SpiderTreadUpdated(float distance, Vector3 originPosition, Vector3 attachPosition){
+		public SpiderTreadCreated(float distance, Vector3 originPosition, Vector3 attachPosition){
 			Distance = distance;
 			OriginPosition = originPosition;
 			AttachPosition = attachPosition;
