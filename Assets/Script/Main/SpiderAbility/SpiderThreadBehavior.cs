@@ -18,11 +18,31 @@ namespace Script.Main.SpiderAbility{
 			if(Input.GetMouseButton(0)){
 				FixThreadPoint();
 			}
+
+			if(Input.GetMouseButtonUp(0)){
+				StopSwingBehavior();
+			}
 		}
 
 		private void OnTreadCreated(SpiderTreadCreated obj){
 			threadAttachPosition = obj.AttachPosition;
 			threadOriginPosition = obj.OriginPosition;
+			StartSwingBehavior(threadAttachPosition, obj.Distance);
+		}
+
+		private void StopSwingBehavior(){
+			springJoint.enablePreprocessing = false;
+		}
+
+		private void StartSwingBehavior(Vector3 attachPosition, float distance){
+			springJoint.enablePreprocessing = true;
+			springJoint.autoConfigureConnectedAnchor = false;
+			springJoint.connectedAnchor = attachPosition;
+			springJoint.maxDistance = distance * 0.8f;
+			springJoint.minDistance = distance * 0.25f;
+			springJoint.spring = 4.5f;
+			springJoint.damper = 7f;
+			springJoint.massScale = 4.5f;
 		}
 
 		public void FixThreadPoint(){

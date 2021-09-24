@@ -17,10 +17,12 @@ namespace Script.Main{
 			var moveForce = new Vector3(moveWorldDirection.x - movementVelocity.x, 0f,
 				moveWorldDirection.z - movementVelocity.z);
 			movementRigidbody.AddForce(moveForce, ForceMode.VelocityChange);
+			movementRigidbody.AddForce(Physics.gravity, ForceMode.Acceleration);
 		}
 
 		public void JumpBehavior(float jumpForce){
 			movementRigidbody.AddForce(Vector3.up * jumpForce , ForceMode.Impulse);
+			movementRigidbody.AddForce(Physics.gravity, ForceMode.Acceleration);
 		}
 	}
 }
