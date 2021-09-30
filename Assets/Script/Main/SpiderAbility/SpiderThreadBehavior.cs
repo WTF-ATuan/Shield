@@ -10,7 +10,6 @@ namespace Script.Main.SpiderAbility{
 
 		private void Start(){
 			actorMovement = GetComponentInParent<ActorMovement>();
-			springJoint = actorMovement.gameObject.AddComponent<SpringJoint>();
 			EventBus.Subscribe<SpiderTreadCreated>(OnTreadCreated);
 		}
 
@@ -31,18 +30,18 @@ namespace Script.Main.SpiderAbility{
 		}
 
 		private void StopSwingBehavior(){
-			springJoint.enablePreprocessing = false;
+			Destroy(springJoint);
 		}
 
 		private void StartSwingBehavior(Vector3 attachPosition, float distance){
-			springJoint.enablePreprocessing = true;
+			springJoint = actorMovement.gameObject.AddComponent<SpringJoint>();
 			springJoint.autoConfigureConnectedAnchor = false;
 			springJoint.connectedAnchor = attachPosition;
 			springJoint.maxDistance = distance * 0.8f;
 			springJoint.minDistance = distance * 0.25f;
-			springJoint.spring = 4.5f;
-			springJoint.damper = 7f;
-			springJoint.massScale = 4.5f;
+			springJoint.spring = 9f; // Runtime set 依照一些data 來判斷
+			springJoint.damper = 14f;
+			springJoint.massScale = 9f;
 		}
 
 		public void FixThreadPoint(){
