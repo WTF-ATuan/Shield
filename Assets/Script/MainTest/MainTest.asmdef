@@ -1,0 +1,18 @@
+{
+    "name": "MainTest",
+    "rootNamespace": "",
+    "references": [
+        "GUID:47825306b8281814780ef6ca1ea59ac9"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

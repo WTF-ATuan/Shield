@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Script.Main{
+namespace Script.Main.Utility{
 	public class EventBus : MonoBehaviour{
 		private static readonly Dictionary<Type, List<Action<object>>> CallbackActions =
 				new Dictionary<Type, List<Action<object>>>();
@@ -32,9 +32,13 @@ namespace Script.Main{
 			}
 		}
 
+		public static void ReSet(){
+			CallbackActions.Clear();
+		}
+
 
 		private void OnDisable(){
-			CallbackActions.Clear();
+			ReSet();
 		}
 	}
 }
