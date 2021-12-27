@@ -11,8 +11,21 @@ namespace Script.MainTest{
 			var forwardDirection = Vector3.forward;
 			actor.Move(forwardDirection);
 			var actorMovedEvents = actor.GetEvent<ActorMoved>();
-			var eventCount = actorMovedEvents.Count;
-			Assert.NotZero(eventCount);
+			var count = actorMovedEvents.Count;
+			Assert.GreaterOrEqual(1, count);
+			var movedEvent = actorMovedEvents[0];
+			var moveDirection = movedEvent.Direction;
+			var isEquals = moveDirection.Equals(forwardDirection);
+			Assert.IsTrue(isEquals);
+		}
+
+		[Test]
+		public void Equip_Weapon_On_Actor(){
+			var actor = new Actor();
+			var weapon = new Weapon();
+			actor.Equip(weapon);
+			var actorWeapon = actor.CurrentWeapon;
+			Assert.AreEqual(weapon, actorWeapon);
 		}
 	}
 }

@@ -8,5 +8,9 @@ namespace Script.Main.Actor{
 			var actorMoved = new ActorMoved(direction);
 			SaveEvent(actorMoved);
 		}
+
+		public void Equip(Weapon weapon){ }
+
+		public Weapon CurrentWeapon{ get; private set; }
 	}
 }

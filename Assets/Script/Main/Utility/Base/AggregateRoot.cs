@@ -30,9 +30,23 @@ namespace Script.Main.Utility.Base{
 			var events = new List<T>();
 			return events;
 		}
+
+		public bool RemoveEvent<T>(){
+			var type = typeof(T);
+			var containsKey = _eventBuffer.ContainsKey(type);
+			if(!containsKey) return false;
+			_eventBuffer[type].Clear();
+			return true;
+		}
+
+		public void RemoveAllEvent(){
+			_eventBuffer.Clear();
+		}
 	}
 
 	public interface IAggregateRoot{
 		List<T> GetEvent<T>() where T : CustomEvent;
+		bool RemoveEvent<T>();
+		void RemoveAllEvent();
 	}
 }
