@@ -9,8 +9,15 @@ namespace Script.Main.Actor{
 			SaveEvent(actorMoved);
 		}
 
-		public void Equip(Weapon weapon){ }
+		public void Equip(Weapon.Weapon weapon){
+			if(CurrentWeapon != null){
+				var weaponSwiped = new WeaponSwiped(CurrentWeapon, weapon);
+				SaveEvent(weaponSwiped);
+			}
 
-		public Weapon CurrentWeapon{ get; private set; }
+			CurrentWeapon = weapon;
+		}
+
+		public Weapon.Weapon CurrentWeapon{ get; private set; }
 	}
 }

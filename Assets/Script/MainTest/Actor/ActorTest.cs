@@ -1,13 +1,12 @@
 ﻿using NUnit.Framework;
-using Script.Main.Actor;
 using Script.Main.Actor.Event;
 using UnityEngine;
 
-namespace Script.MainTest{
+namespace Script.MainTest.Actor{
 	public class ActorTest{
 		[Test]
 		public void Move_Actor_Forward(){
-			var actor = new Actor();
+			var actor = new Main.Actor.Actor();
 			var forwardDirection = Vector3.forward;
 			actor.Move(forwardDirection);
 			var actorMovedEvents = actor.GetEvent<ActorMoved>();
@@ -21,8 +20,8 @@ namespace Script.MainTest{
 
 		[Test]
 		public void Equip_Weapon_On_Actor(){
-			var actor = new Actor();
-			var weapon = new Weapon();
+			var actor = new Main.Actor.Actor();
+			var weapon = new Main.Weapon.Weapon();
 			actor.Equip(weapon);
 			var actorWeapon = actor.CurrentWeapon;
 			Assert.AreEqual(weapon, actorWeapon);
