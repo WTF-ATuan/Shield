@@ -2,7 +2,7 @@
 using Script.Main.Utility.Base;
 using UnityEngine;
 
-namespace Script.Main.Actor{
+namespace Script.Main.Actor.Entity{
 	public class Actor : AggregateRoot{
 		public void Move(Vector3 direction){
 			var actorMoved = new ActorMoved(direction);
@@ -10,7 +10,7 @@ namespace Script.Main.Actor{
 		}
 
 		public void Equip(Weapon.Weapon weapon){
-			if(CurrentWeapon != null){
+			if(CurrentWeapon != weapon){
 				var weaponSwiped = new WeaponSwiped(CurrentWeapon, weapon);
 				SaveEvent(weaponSwiped);
 			}

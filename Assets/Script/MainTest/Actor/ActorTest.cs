@@ -6,7 +6,7 @@ namespace Script.MainTest.Actor{
 	public class ActorTest{
 		[Test]
 		public void Move_Actor_Forward(){
-			var actor = new Main.Actor.Actor();
+			var actor = new Main.Actor.Entity.Actor();
 			var forwardDirection = Vector3.forward;
 			actor.Move(forwardDirection);
 			var actorMovedEvents = actor.GetEvent<ActorMoved>();
@@ -20,7 +20,7 @@ namespace Script.MainTest.Actor{
 
 		[Test]
 		public void Equip_Weapon_On_Actor(){
-			var actor = new Main.Actor.Actor();
+			var actor = new Main.Actor.Entity.Actor();
 			var weapon = new Main.Weapon.Weapon();
 			actor.Equip(weapon);
 			var actorWeapon = actor.CurrentWeapon;
