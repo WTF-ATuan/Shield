@@ -1,11 +1,12 @@
-﻿using Script.Main.Utility;
+﻿using Script.Main.Actor.Entity;
+using Script.Main.Utility;
 
 namespace Script.Main.Actor.Event{
 	public class WeaponSwiped : ViewEvent{
-		public Weapon.Weapon CurrentWeapon{ get; }
-		public Weapon.Weapon SwipeWeapon{ get; }
+		public Weapon CurrentWeapon{ get; }
+		public Weapon SwipeWeapon{ get; }
 
-		public WeaponSwiped(Weapon.Weapon currentWeapon, Weapon.Weapon swipeWeapon){
+		public WeaponSwiped(Weapon currentWeapon, Weapon swipeWeapon){
 			CurrentWeapon = currentWeapon;
 			SwipeWeapon = swipeWeapon;
 			throw new System.NotImplementedException();

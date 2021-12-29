@@ -21,7 +21,7 @@ namespace Script.MainTest.Actor{
 		[Test]
 		public void Equip_Weapon_On_Actor(){
 			var actor = new Main.Actor.Entity.Actor();
-			var weapon = new Main.Weapon.Weapon();
+			var weapon = new Main.Actor.Entity.Weapon();
 			actor.Equip(weapon);
 			var actorWeapon = actor.CurrentWeapon;
 			Assert.AreEqual(weapon, actorWeapon);
