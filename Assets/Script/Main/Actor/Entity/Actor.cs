@@ -9,7 +9,7 @@ namespace Script.Main.Actor.Entity{
 			SaveEvent(actorMoved);
 		}
 
-		public void Equip(Weapon weapon){
+		public void Equip(Weapon.Entity.Weapon weapon){
 			if(CurrentWeapon != weapon){
 				var weaponSwiped = new WeaponSwiped(CurrentWeapon, weapon);
 				SaveEvent(weaponSwiped);
@@ -18,6 +18,6 @@ namespace Script.Main.Actor.Entity{
 			CurrentWeapon = weapon;
 		}
 
-		public Weapon CurrentWeapon{ get; private set; }
+		public Weapon.Entity.Weapon CurrentWeapon{ get; private set; }
 	}
 }
