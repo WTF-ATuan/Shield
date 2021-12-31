@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Script.Main.Weapon.Event;
 
 namespace Script.MainTest.Weapon{
 	public class WeaponTest{
@@ -11,11 +12,27 @@ namespace Script.MainTest.Weapon{
 			Assert.AreEqual(defaultMaxAmmoCount, currentAmmoCount);
 		}
 
-		public void Weapon_Fired_Expend_Ammo(){
-			var weapon = new Main.Weapon.Entity.Weapon(30);
+		[Test]
+		public void Weapon_Fire_Enough_Bullet(){
+			const int defaultMaxAmmoCount = 30;
+			var weapon = new Main.Weapon.Entity.Weapon(defaultMaxAmmoCount);
 			weapon.Fire();
 			var currentAmmoCount = weapon.CurrentAmmoCount;
-			weapon.GetEvent<WeaponFired>();
+			Assert.AreEqual(defaultMaxAmmoCount - 1, currentAmmoCount);
+			var weaponFiredEvents = weapon.GetEvent<WeaponFired>();
+			var eventCount = weaponFiredEvents.Count;
+			Assert.GreaterOrEqual(eventCount, 1);
+		}
+
+		[Test]
+		public void Weapon_Fire_Not_Enough_Bullet(){
+			const int defaultAmmoCount = 0;
+			var weapon = new Main.Weapon.Entity.Weapon(defaultAmmoCount);
+			weapon.Fire();
+			Assert.AreEqual(defaultAmmoCount, weapon.CurrentAmmoCount);
+			var weaponUnFiredEvents = weapon.GetEvent<WeaponUnFired>();
+			var eventCount = weaponUnFiredEvents.Count;
+			Assert.GreaterOrEqual(eventCount, 1);
 		}
 	}
 }
