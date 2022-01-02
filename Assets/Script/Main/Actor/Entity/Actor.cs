@@ -4,6 +4,14 @@ using UnityEngine;
 
 namespace Script.Main.Actor.Entity{
 	public class Actor : AggregateRoot{
+		public string Uid{ get; }
+
+		public Actor(string uid){
+			Uid = uid;
+			var actorCreated = new ActorCreated(uid);
+			SaveEvent(actorCreated);
+		}
+
 		public void Move(Vector3 direction){
 			var actorMoved = new ActorMoved(direction);
 			SaveEvent(actorMoved);
