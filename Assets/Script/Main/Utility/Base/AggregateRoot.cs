@@ -31,6 +31,26 @@ namespace Script.Main.Utility.Base{
 			return events;
 		}
 
+		public List<DomainEvent> GetAllDomainEvent(){
+			var allEvent = _eventBuffer.Values.ToList();
+			return (from customEventList in allEvent
+				from customEvent in customEventList
+				let eventType = customEvent.GetType()
+				let isSubclass = eventType.IsSubclassOf(typeof(DomainEvent))
+				where isSubclass
+				select (DomainEvent)customEvent).ToList();
+		}
+
+		public List<ViewEvent> GetAllViewEvent(){
+			var allEvent = _eventBuffer.Values.ToList();
+			return (from customEventList in allEvent
+				from customEvent in customEventList
+				let eventType = customEvent.GetType()
+				let isSubclass = eventType.IsSubclassOf(typeof(ViewEvent))
+				where isSubclass
+				select (ViewEvent)customEvent).ToList();
+		}
+
 		public bool RemoveEvent<T>(){
 			var type = typeof(T);
 			var containsKey = _eventBuffer.ContainsKey(type);
