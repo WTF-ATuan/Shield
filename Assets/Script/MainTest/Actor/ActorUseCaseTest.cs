@@ -20,5 +20,11 @@ namespace Script.MainTest.Actor{
 			var actorCount = actorRepository.ActorCount;
 			Assert.GreaterOrEqual(actorCount, 1);
 		}
+
+		[Test]
+		public void Make_Actor_Move(){
+			var actorUseCase = new ActorUseCase();
+			
+		}
 	}
 }
