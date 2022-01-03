@@ -14,9 +14,11 @@ namespace Script.MainTest.Actor{
 		[Test]
 		public void Actor_Created_Should_Add_To_Repository(){
 			var actorUseCase = new ActorUseCase();
-			var actorRepository =  new ActorRepository();
+			var actorRepository = new ActorRepository();
 			var actor = actorUseCase.CreateActor("123");
-			
+			actorRepository.Save(actor);
+			var actorCount = actorRepository.ActorCount;
+			Assert.GreaterOrEqual(actorCount, 1);
 		}
 	}
 }

@@ -32,13 +32,13 @@ namespace Script.Main.Utility{
 			}
 		}
 
-		public static void ReSet(){
+		public void Reset(){
 			CallbackActions.Clear();
 		}
 
 
 		private void OnDisable(){
-			ReSet();
+			Reset();
 		}
 	}
 }
