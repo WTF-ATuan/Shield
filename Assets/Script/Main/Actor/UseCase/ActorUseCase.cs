@@ -1,22 +1,35 @@
 ﻿using System.Collections.Generic;
+using Script.Main.Actor.Repository;
 using Script.Main.Utility;
+using UnityEngine;
 
 namespace Script.Main.Actor.UseCase{
 	public class ActorUseCase{
-		public Entity.Actor CreateActor(string uid){
+		private ActorRepository Repository{ get; }
+
+		public ActorUseCase(ActorRepository repository){
+			Repository = repository;
+		}
+
+		public ActorUseCase(){
+			Repository = new ActorRepository();
+		}
+
+		public void CreateActor(string uid){
 			var actor = new Entity.Actor(uid);
+			Repository.Save(actor);
 			var viewEvents = actor.GetAllViewEvent();
 			var domainEvents = actor.GetAllDomainEvent();
 			PostAllEvents(domainEvents);
 			PostAllEvents(viewEvents);
-			return actor;
 		}
 
-		private void PostAllEvents<T>(List<T> customEvents)where T : CustomEvent{
+		public void MoveActor(string uid, Vector3 direction){ }
+
+		private void PostAllEvents<T>(List<T> customEvents) where T : CustomEvent{
 			foreach(var customEvent in customEvents){
 				EventBus.Post(customEvent);
 			}
 		}
-		
 	}
 }
