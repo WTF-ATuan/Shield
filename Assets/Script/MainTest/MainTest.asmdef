@@ -2,7 +2,8 @@
     "name": "MainTest",
     "rootNamespace": "",
     "references": [
-        "GUID:47825306b8281814780ef6ca1ea59ac9"
+        "GUID:47825306b8281814780ef6ca1ea59ac9",
+        "GUID:a2f2239355369ba4fb6909aeaa41def5"
     ],
     "includePlatforms": [
         "Editor"
