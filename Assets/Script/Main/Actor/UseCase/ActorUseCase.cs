@@ -24,7 +24,12 @@ namespace Script.Main.Actor.UseCase{
 			PostAllEvents(viewEvents);
 		}
 
-		public void MoveActor(string uid, Vector3 direction){ }
+		public void MoveActor(string uid, Vector3 direction){
+			var actor = Repository.Find(uid);
+			actor.Move(direction);
+			var viewEvents = actor.GetAllViewEvent();
+			PostAllEvents(viewEvents);
+		}
 
 		private void PostAllEvents<T>(List<T> customEvents) where T : CustomEvent{
 			foreach(var customEvent in customEvents){

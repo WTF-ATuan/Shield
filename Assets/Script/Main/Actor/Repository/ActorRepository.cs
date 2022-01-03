@@ -11,5 +11,10 @@ namespace Script.Main.Actor.Repository{
 		}
 
 		public int ActorCount => _actorList.Count;
+
+		public Entity.Actor Find(string uid){
+			var actor = _actorList.Find(actor => actor.Uid == uid);
+			return actor;
+		}
 	}
 }

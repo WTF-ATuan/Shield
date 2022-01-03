@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Script.Main.Actor.Repository;
 using Script.Main.Actor.UseCase;
+using UnityEngine;
 
 namespace Script.MainTest.Actor{
 	public class ActorUseCaseTest{
@@ -16,6 +17,9 @@ namespace Script.MainTest.Actor{
 		[Test]
 		public void Make_Actor_Move(){
 			var actorUseCase = new ActorUseCase();
+			const string actorID = "123";
+			actorUseCase.CreateActor(actorID);
+			actorUseCase.MoveActor(actorID , Vector3.forward);
 		}
 	}
 }
