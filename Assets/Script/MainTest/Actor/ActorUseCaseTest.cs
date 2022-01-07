@@ -16,10 +16,16 @@ namespace Script.MainTest.Actor{
 
 		[Test]
 		public void Make_Actor_Move(){
-			var actorUseCase = new ActorUseCase();
 			const string actorID = "123";
+			var actor = new Main.Actor.Entity.Actor(actorID);
+			var actorRepository = new ActorRepository();
+			actorRepository.Save(actor);
+			var actorUseCase = new ActorUseCase(actorRepository);
 			actorUseCase.CreateActor(actorID);
-			actorUseCase.MoveActor(actorID , Vector3.forward);
+			actorUseCase.MoveActor(actorID, Vector3.forward);
+			var viewEvents = actor.GetAllViewEvent();
+			var viewEventsCount = viewEvents.Count;
+			Assert.Greater(viewEventsCount, 0);
 		}
 	}
 }

@@ -10,11 +10,7 @@ namespace Script.Main.Actor.UseCase{
 		public ActorUseCase(ActorRepository repository){
 			Repository = repository;
 		}
-
-		public ActorUseCase(){
-			Repository = new ActorRepository();
-		}
-
+		
 		public void CreateActor(string uid){
 			var actor = new Entity.Actor(uid);
 			Repository.Save(actor);
