@@ -20,7 +20,9 @@ namespace Script.Main.Actor.Component{
 		private void Update(){
 			var horizontalValue = Input.GetAxisRaw("Horizontal");
 			var verticalValue = Input.GetAxisRaw("Vertical");
-			var moveValue = new Vector3(horizontalValue, 0, verticalValue);
+			var isJump = Input.GetKeyDown(KeyCode.Space);
+			var jumpValue = isJump ? 1 : 0;
+			var moveValue = new Vector3(horizontalValue, jumpValue, verticalValue);
 			_actorUseCase.MoveActor(actorID, moveValue);
 		}
 	}
