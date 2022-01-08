@@ -9,7 +9,6 @@ namespace Script.Main.Actor.Event{
 		public WeaponSwiped(Weapon.Entity.Weapon currentWeapon, Weapon.Entity.Weapon swipeWeapon){
 			CurrentWeapon = currentWeapon;
 			SwipeWeapon = swipeWeapon;
-			throw new System.NotImplementedException();
 		}
 	}
 }

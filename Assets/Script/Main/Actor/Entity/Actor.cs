@@ -5,9 +5,11 @@ using UnityEngine;
 namespace Script.Main.Actor.Entity{
 	public class Actor : AggregateRoot{
 		public string Uid{ get; }
+		public int Health{ get; }
 
-		public Actor(string uid){
+		public Actor(string uid , int health){
 			Uid = uid;
+			Health = health;
 			var actorCreated = new ActorCreated(uid);
 			SaveEvent(actorCreated);
 		}

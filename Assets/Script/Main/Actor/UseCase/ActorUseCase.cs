@@ -11,8 +11,8 @@ namespace Script.Main.Actor.UseCase{
 			Repository = repository;
 		}
 		
-		public void CreateActor(string uid){
-			var actor = new Entity.Actor(uid);
+		public void CreateActor(string uid , int health){
+			var actor = new Entity.Actor(uid , health);
 			Repository.Save(actor);
 			var viewEvents = actor.GetAllViewEvent();
 			var domainEvents = actor.GetAllDomainEvent();
@@ -25,6 +25,10 @@ namespace Script.Main.Actor.UseCase{
 			actor.Move(direction);
 			var viewEvents = actor.GetAllViewEvent();
 			PostAllEvents(viewEvents);
+		}
+
+		public void ModifyActorHealth(string uid, int amount){
+			throw new System.NotImplementedException();
 		}
 
 		private void PostAllEvents<T>(List<T> customEvents) where T : CustomEvent{

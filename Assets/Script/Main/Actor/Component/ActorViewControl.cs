@@ -14,7 +14,7 @@ namespace Script.Main.Actor.Component{
 			_actorRepository = new ActorRepository();
 			_actorUseCase = new ActorUseCase(_actorRepository);
 			actorID = Guid.NewGuid().ToString();
-			_actorUseCase.CreateActor(actorID);
+			_actorUseCase.CreateActor(actorID , 100);
 		}
 
 		private void Update(){
