@@ -5,9 +5,9 @@ using UnityEngine;
 namespace Script.Main.Actor.Entity{
 	public class Actor : AggregateRoot{
 		public string Uid{ get; }
-		public int Health{ get; }
+		public int Health{ get; private set; }
 
-		public Actor(string uid , int health){
+		public Actor(string uid, int health){
 			Uid = uid;
 			Health = health;
 			var actorCreated = new ActorCreated(uid);
@@ -28,6 +28,12 @@ namespace Script.Main.Actor.Entity{
 			}
 
 			CurrentWeapon = weapon;
+		}
+
+		public void ModifyHealth(int amount){
+			Health += amount;
+			var healthModified = new HealthModified(Uid , Health);
+			SaveEvent(healthModified);
 		}
 
 		public Weapon.Entity.Weapon CurrentWeapon{ get; private set; }

@@ -28,7 +28,8 @@ namespace Script.Main.Actor.UseCase{
 		}
 
 		public void ModifyActorHealth(string uid, int amount){
-			throw new System.NotImplementedException();
+			var actor = Repository.Find(uid);
+			actor.ModifyHealth(amount);
 		}
 
 		private void PostAllEvents<T>(List<T> customEvents) where T : CustomEvent{

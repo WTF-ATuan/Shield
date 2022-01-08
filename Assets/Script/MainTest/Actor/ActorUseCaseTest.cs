@@ -43,13 +43,29 @@ namespace Script.MainTest.Actor{
 		}
 
 		[Test]
-		public void Modify_Actor_Health(){
+		public void Actor_Get_Hurt(){
 			const string actorID = "123";
-			var actor = new Main.Actor.Entity.Actor(actorID, 100);
+			var defaultHealth = 100;
+			var actor = new Main.Actor.Entity.Actor(actorID, defaultHealth);
 			var actorRepository = new ActorRepository();
 			actorRepository.Save(actor);
 			var actorUseCase = new ActorUseCase(actorRepository);
 			actorUseCase.ModifyActorHealth(actorID, -10);
+			var expectHealth = defaultHealth - 10;
+			Assert.AreEqual(expectHealth, actor.Health);
+		}
+
+		[Test]
+		public void Actor_Get_Heal(){
+			const string actorID = "123";
+			var defaultHealth = 100;
+			var actor = new Main.Actor.Entity.Actor(actorID, defaultHealth);
+			var actorRepository = new ActorRepository();
+			actorRepository.Save(actor);
+			var actorUseCase = new ActorUseCase(actorRepository);
+			actorUseCase.ModifyActorHealth(actorID, +10);
+			var expectHealth = defaultHealth + 10;
+			Assert.AreEqual(expectHealth, actor.Health);
 		}
 	}
 }
