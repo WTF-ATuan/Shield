@@ -13,7 +13,9 @@ namespace Script.Main.Actor.Entity{
 		}
 
 		public void Move(Vector3 direction){
-			var actorMoved = new ActorMoved(direction);
+			var directionY = direction.y;
+			var isJump = directionY > 0;
+			var actorMoved = new ActorMoved(direction, isJump);
 			SaveEvent(actorMoved);
 		}
 

@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Script.Main.Actor.Event;
 using Script.Main.Actor.Repository;
 using Script.Main.Actor.UseCase;
 using UnityEngine;
@@ -19,13 +20,26 @@ namespace Script.MainTest.Actor{
 			const string actorID = "123";
 			var actor = new Main.Actor.Entity.Actor(actorID);
 			var actorRepository = new ActorRepository();
-			actorRepository.Save(actor);
 			var actorUseCase = new ActorUseCase(actorRepository);
-			actorUseCase.CreateActor(actorID);
+			actorRepository.Save(actor);
 			actorUseCase.MoveActor(actorID, Vector3.forward);
 			var viewEvents = actor.GetAllViewEvent();
 			var viewEventsCount = viewEvents.Count;
 			Assert.Greater(viewEventsCount, 0);
+		}
+
+		[Test]
+		public void Make_Actor_Jump(){
+			const string actorID = "123";
+			var actor = new Main.Actor.Entity.Actor(actorID);
+			var actorRepository = new ActorRepository();
+			var actorUseCase = new ActorUseCase(actorRepository);
+			actorRepository.Save(actor);
+			actorUseCase.MoveActor(actorID, Vector3.up);
+			var actorMovedEventList = actor.GetEvent<ActorMoved>();
+			var actorMovedEvent = actorMovedEventList[0];
+			var isJump = actorMovedEvent.IsJump;
+			Assert.AreEqual(true, isJump);
 		}
 	}
 }
