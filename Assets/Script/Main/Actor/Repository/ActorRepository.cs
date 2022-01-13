@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Script.Main.Actor.Controller;
 
 namespace Script.Main.Actor.Repository{
-	public class ActorRepository{
+	public class ActorRepository : IRepository{
 		private readonly List<Entity.Actor> _actorList = new List<Entity.Actor>();
 
 		public void Save(Entity.Actor actor){
