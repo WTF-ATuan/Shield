@@ -30,10 +30,10 @@ namespace Script.MainTest.Actor{
 		[Test]
 		public void Equip_Weapon_On_Actor(){
 			var actor = new Main.Actor.Entity.Actor("123", 100);
-			var weapon = new Main.Weapon.Entity.Weapon(30);
+			var weapon = new Main.Weapon.Entity.Weapon("123", 30);
 			actor.Equip(weapon);
 			var actorWeapon = actor.CurrentWeapon;
-			Assert.AreEqual(weapon , actorWeapon);
+			Assert.AreEqual(weapon, actorWeapon);
 		}
 	}
 }

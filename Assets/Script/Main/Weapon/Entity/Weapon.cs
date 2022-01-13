@@ -4,11 +4,13 @@ using Script.MainTest.Weapon;
 
 namespace Script.Main.Weapon.Entity{
 	public class Weapon : AggregateRoot{
-		public Weapon(int maxAmmoCount){
+		public Weapon(string uid , int maxAmmoCount){
+			Uid = uid;
 			MaxAmmoCount = maxAmmoCount;
 			CurrentAmmoCount = MaxAmmoCount;
 		}
 
+		public string Uid{ get; }
 		public int CurrentAmmoCount{ get; private set; }
 		public int MaxAmmoCount{ get; }
 

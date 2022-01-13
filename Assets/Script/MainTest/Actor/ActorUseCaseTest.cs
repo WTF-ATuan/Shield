@@ -72,7 +72,7 @@ namespace Script.MainTest.Actor{
 		public void Make_Actor_Fire(){
 			const string actorID = "123";
 			var actor = new Main.Actor.Entity.Actor(actorID, 100);
-			var weapon = new Main.Weapon.Entity.Weapon(30);
+			var weapon = new Main.Weapon.Entity.Weapon("123",30);
 			var actorRepository = new ActorRepository();
 			actorRepository.Save(actor);
 			var actorUseCase = new ActorUseCase(actorRepository);
@@ -86,8 +86,8 @@ namespace Script.MainTest.Actor{
 		public void Make_Actor_Switch_Weapon(){
 			const string actorID = "123";
 			var actor = new Main.Actor.Entity.Actor(actorID, 100);
-			var firstWeapon = new Main.Weapon.Entity.Weapon(30);
-			var secondWeapon = new Main.Weapon.Entity.Weapon(7);
+			var firstWeapon = new Main.Weapon.Entity.Weapon("123",30);
+			var secondWeapon = new Main.Weapon.Entity.Weapon("123",7);
 			var actorRepository = new ActorRepository();
 			actorRepository.Save(actor);
 			var actorUseCase = new ActorUseCase(actorRepository);

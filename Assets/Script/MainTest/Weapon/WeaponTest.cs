@@ -6,7 +6,7 @@ namespace Script.MainTest.Weapon{
 		[Test]
 		public void Create_Weapon_With_Default_Setting(){
 			const int defaultMaxAmmoCount = 30;
-			var weapon = new Main.Weapon.Entity.Weapon(defaultMaxAmmoCount);
+			var weapon = new Main.Weapon.Entity.Weapon("123",defaultMaxAmmoCount);
 			Assert.NotNull(weapon);
 			var currentAmmoCount = weapon.CurrentAmmoCount;
 			Assert.AreEqual(defaultMaxAmmoCount, currentAmmoCount);
@@ -15,7 +15,7 @@ namespace Script.MainTest.Weapon{
 		[Test]
 		public void Weapon_Fire_Enough_Bullet(){
 			const int defaultMaxAmmoCount = 30;
-			var weapon = new Main.Weapon.Entity.Weapon(defaultMaxAmmoCount);
+			var weapon = new Main.Weapon.Entity.Weapon("123",defaultMaxAmmoCount);
 			weapon.Fire();
 			var currentAmmoCount = weapon.CurrentAmmoCount;
 			Assert.AreEqual(defaultMaxAmmoCount - 1, currentAmmoCount);
@@ -27,7 +27,7 @@ namespace Script.MainTest.Weapon{
 		[Test]
 		public void Weapon_Fire_Not_Enough_Bullet(){
 			const int defaultAmmoCount = 0;
-			var weapon = new Main.Weapon.Entity.Weapon(defaultAmmoCount);
+			var weapon = new Main.Weapon.Entity.Weapon("123",defaultAmmoCount);
 			weapon.Fire();
 			Assert.AreEqual(defaultAmmoCount, weapon.CurrentAmmoCount);
 			var weaponUnFiredEvents = weapon.GetEvent<WeaponUnFired>();
