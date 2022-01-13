@@ -3117,7 +3117,6 @@ GameObject:
   - component: {fileID: 3757637314356900174}
   - component: {fileID: 3813153627159594450}
   - component: {fileID: 3875786406576327580}
-  - component: {fileID: 3759449223679536407}
   m_Layer: 8
   m_Name: Assault_Rifle_01_FPSController
   m_TagString: Untagged
@@ -3125,19 +3124,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3759449223679536407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3759449223679536406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c06e4348584824ab982f224a8db2e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0
 --- !u!1 &3759464344009433688
 GameObject:
   m_ObjectHideFlags: 0
