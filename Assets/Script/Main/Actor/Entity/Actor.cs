@@ -1,4 +1,5 @@
-﻿using Script.Main.Actor.Event;
+﻿using System;
+using Script.Main.Actor.Event;
 using Script.Main.Utility.Base;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ namespace Script.Main.Actor.Entity{
 		}
 
 		public void Equip(Weapon.Entity.Weapon weapon){
-			if(CurrentWeapon != weapon){
+			if(CurrentWeapon != weapon && CurrentWeapon != null){
 				var weaponSwiped = new WeaponSwiped(CurrentWeapon, weapon);
 				SaveEvent(weaponSwiped);
 			}
@@ -32,8 +33,13 @@ namespace Script.Main.Actor.Entity{
 
 		public void ModifyHealth(int amount){
 			Health += amount;
-			var healthModified = new HealthModified(Uid , Health);
+			var healthModified = new HealthModified(Uid, Health);
 			SaveEvent(healthModified);
+		}
+
+		public void Fire(){
+			if(CurrentWeapon == null) throw new NullReferenceException("Weapon Is Null");
+			CurrentWeapon.Fire();
 		}
 
 		public Weapon.Entity.Weapon CurrentWeapon{ get; private set; }

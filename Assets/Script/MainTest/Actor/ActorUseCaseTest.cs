@@ -43,7 +43,7 @@ namespace Script.MainTest.Actor{
 		}
 
 		[Test]
-		public void Actor_Get_Hurt(){
+		public void Make_Actor_Hurt(){
 			const string actorID = "123";
 			var defaultHealth = 100;
 			var actor = new Main.Actor.Entity.Actor(actorID, defaultHealth);
@@ -56,7 +56,7 @@ namespace Script.MainTest.Actor{
 		}
 
 		[Test]
-		public void Actor_Get_Heal(){
+		public void Make_Actor_Heal(){
 			const string actorID = "123";
 			var defaultHealth = 100;
 			var actor = new Main.Actor.Entity.Actor(actorID, defaultHealth);
@@ -66,6 +66,35 @@ namespace Script.MainTest.Actor{
 			actorUseCase.ModifyActorHealth(actorID, +10);
 			var expectHealth = defaultHealth + 10;
 			Assert.AreEqual(expectHealth, actor.Health);
+		}
+
+		[Test]
+		public void Make_Actor_Fire(){
+			const string actorID = "123";
+			var actor = new Main.Actor.Entity.Actor(actorID, 100);
+			var weapon = new Main.Weapon.Entity.Weapon(30);
+			var actorRepository = new ActorRepository();
+			actorRepository.Save(actor);
+			var actorUseCase = new ActorUseCase(actorRepository);
+			actorUseCase.EquipWeapon(actorID, weapon);
+			actorUseCase.MakeActorFire(actorID);
+			var viewEvents = weapon.GetAllViewEvent();
+			Assert.Greater(viewEvents.Count, 0);
+		}
+
+		[Test]
+		public void Make_Actor_Switch_Weapon(){
+			const string actorID = "123";
+			var actor = new Main.Actor.Entity.Actor(actorID, 100);
+			var firstWeapon = new Main.Weapon.Entity.Weapon(30);
+			var secondWeapon = new Main.Weapon.Entity.Weapon(7);
+			var actorRepository = new ActorRepository();
+			actorRepository.Save(actor);
+			var actorUseCase = new ActorUseCase(actorRepository);
+			actorUseCase.EquipWeapon(actorID, firstWeapon);
+			actorUseCase.EquipWeapon(actorID, secondWeapon);
+			var viewEvent = actor.GetEvent<WeaponSwiped>();
+			Assert.AreEqual(viewEvent.Count , 1);
 		}
 	}
 }

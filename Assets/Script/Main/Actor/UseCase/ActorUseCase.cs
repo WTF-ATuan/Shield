@@ -10,9 +10,9 @@ namespace Script.Main.Actor.UseCase{
 		public ActorUseCase(ActorRepository repository){
 			Repository = repository;
 		}
-		
-		public void CreateActor(string uid , int health){
-			var actor = new Entity.Actor(uid , health);
+
+		public void CreateActor(string uid, int health){
+			var actor = new Entity.Actor(uid, health);
 			Repository.Save(actor);
 			var viewEvents = actor.GetAllViewEvent();
 			var domainEvents = actor.GetAllDomainEvent();
@@ -30,6 +30,16 @@ namespace Script.Main.Actor.UseCase{
 		public void ModifyActorHealth(string uid, int amount){
 			var actor = Repository.Find(uid);
 			actor.ModifyHealth(amount);
+		}
+
+		public void MakeActorFire(string uid){
+			var actor = Repository.Find(uid);
+			actor.Fire();
+		}
+
+		public void EquipWeapon(string uid, Weapon.Entity.Weapon weapon){
+			var actor = Repository.Find(uid);
+			actor.Equip(weapon);
 		}
 
 		private void PostAllEvents<T>(List<T> customEvents) where T : CustomEvent{
