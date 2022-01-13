@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Script.Main.Actor.Controller;
 
 namespace Script.Main.Actor.Repository{
 	public class ActorRepository{
