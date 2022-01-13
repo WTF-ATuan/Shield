@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Script.Main.Actor.Controller;
 
 namespace Script.Main.Actor.Repository{
-	public class ActorRepository : IRepository{
+	public class ActorRepository{
 		private readonly List<Entity.Actor> _actorList = new List<Entity.Actor>();
 
 		public void Save(Entity.Actor actor){
