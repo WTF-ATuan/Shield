@@ -7,6 +7,17 @@ namespace Project.Component{
 			DetectMoveInput();
 			DetectRightMouseButton();
 			DetectLeftMouseButton();
+			DetectMousePosition();
+		}
+
+		private void DetectMousePosition(){
+			if(Camera.main == null) return;
+			var mousePos = Input.mousePosition;
+			mousePos.z = Camera.main.nearClipPlane;
+			var worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+			worldPosition.z = 0;
+			var mousePositionDetected = new MousePositionDetected(worldPosition);
+			EventBus.Post(mousePositionDetected);
 		}
 
 		private void DetectRightMouseButton(){
