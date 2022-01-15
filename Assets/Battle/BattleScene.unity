@@ -7407,8 +7407,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1049941841}
+  - component: {fileID: 1049941844}
+  - component: {fileID: 1049941843}
+  - component: {fileID: 1049941842}
   m_Layer: 0
-  m_Name: EventBus
+  m_Name: SceneContext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7429,6 +7432,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1049941842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049941839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1d5076d8824bda9443f72c37d1f592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1049941843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049941839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cae77bfc854c02a23440b865008124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1049941844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049941839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d150a73c0bff4b2b88c9b062d80c104b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1057426966
 GameObject:
   m_ObjectHideFlags: 0
@@ -12199,6 +12238,37 @@ Transform:
   m_Father: {fileID: 2136987686}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2090009644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8214089541410210108, guid: 08c3842862a366b40aa160ef325fc92d, type: 3}
+  m_PrefabInstance: {fileID: 8214089539607774480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2090009648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090009644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba328e54ec252d44da3d04adacd886bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  jumpForce: 20
+--- !u!114 &2090009649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090009644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d14526510946c0a0aed9be18b4b21f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2108947649
 GameObject:
   m_ObjectHideFlags: 0
