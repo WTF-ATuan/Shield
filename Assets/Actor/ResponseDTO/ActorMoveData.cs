@@ -10,6 +10,5 @@
 			IsJump = isJump;
 		}
 
-		public ActorMoveData(){ }
 	}
 }
