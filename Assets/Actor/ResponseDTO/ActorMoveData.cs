@@ -1,4 +1,4 @@
-﻿namespace Actor.ResponDTO{
+﻿namespace Actor.ResponseDTO{
 	public class ActorMoveData{
 		public float Horizontal{ get; set; }
 		public float Vertical{ get; set; }

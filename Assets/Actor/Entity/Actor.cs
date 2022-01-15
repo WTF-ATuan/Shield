@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Actor.Entity.Behavior;
-using Actor.ResponDTO;
+using Actor.ResponseDTO;
 
 namespace Actor.Entity{
 	public class Actor{

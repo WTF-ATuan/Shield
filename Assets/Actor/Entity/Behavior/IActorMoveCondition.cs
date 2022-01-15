@@ -1,4 +1,4 @@
-﻿using Actor.ResponDTO;
+﻿using Actor.ResponseDTO;
 
 namespace Actor.Entity.Behavior{
 	public interface IActorMoveCondition{

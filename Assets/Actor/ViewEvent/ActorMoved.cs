@@ -1,4 +1,4 @@
-﻿using Actor.ResponDTO;
+﻿using Actor.ResponseDTO;
 
 namespace Actor.ViewEvent{
 	public class ActorMoved{
