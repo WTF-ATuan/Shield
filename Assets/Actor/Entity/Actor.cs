@@ -19,6 +19,7 @@ namespace Actor.Entity{
 			if(_moveConditions.Count < 1){
 				var defaultMoveData = new ActorMoveData(horizontal, vertical, isJump);
 				_moveData = defaultMoveData;
+				return;
 			}
 
 			var moveDataList = new List<ActorMoveData>();
@@ -29,8 +30,8 @@ namespace Actor.Entity{
 				_moveData = moveData;
 			}
 
-			var canJump = moveDataList.Any(x => x.IsJump == true);
-			if(!canJump){
+			var notJump = moveDataList.Any(x => x.IsJump == false);
+			if(notJump){
 				_moveData.IsJump = false;
 			}
 		}
