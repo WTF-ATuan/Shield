@@ -1,9 +1,8 @@
-﻿using Actor.Component;
-using Actor.ViewEvent;
+﻿using Actor.ViewEvent;
 using Project;
 using UnityEngine;
 
-namespace Actor.EventHandler{
+namespace Actor.Component{
 	public class ActorViewEventHandler : MonoBehaviour{
 		private ActorBehavior _actorBehavior;
 

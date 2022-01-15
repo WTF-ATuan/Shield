@@ -21,6 +21,11 @@ namespace Actor.Entity{
 		}
 
 		public ActorMoveData GetMoveData(){
+			if(_moveConditions.Count < 1){
+				var defaultMoveData = new ActorMoveData();
+				return defaultMoveData;
+			}
+
 			var moveDataList = _moveConditions.Select(moveCondition => moveCondition.GetConditionData()).ToList();
 			// ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
 			foreach(var moveData in moveDataList){

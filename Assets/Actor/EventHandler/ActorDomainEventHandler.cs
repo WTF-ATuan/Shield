@@ -1,4 +1,5 @@
-﻿using Actor.ViewEvent;
+﻿using Actor.ResponseDTO;
+using Actor.ViewEvent;
 using Project;
 using Project.Event;
 
@@ -16,7 +17,8 @@ namespace Actor.EventHandler{
 			_actor.Move(horizontalValue , verticalValue , isJump);
 			var actorMoveData = _actor.GetMoveData();
 			var actorID = _actor.ActorID;
-			var actorMoved = new ActorMoved(actorID , actorMoveData);
+			var moveData = new ActorMoveData(horizontalValue, verticalValue, isJump);
+			var actorMoved = new ActorMoved(actorID , moveData);
 			EventBus.Post(actorMoved);
 		}
 	}
