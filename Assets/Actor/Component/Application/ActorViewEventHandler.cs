@@ -2,7 +2,7 @@
 using Project;
 using UnityEngine;
 
-namespace Actor.Component{
+namespace Actor.Component.Application{
 	public class ActorViewEventHandler : MonoBehaviour{
 		private ActorBehavior _actorBehavior;
 

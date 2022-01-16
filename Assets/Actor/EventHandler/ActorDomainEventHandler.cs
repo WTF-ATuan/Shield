@@ -1,4 +1,4 @@
-﻿using Actor.ResponseDTO;
+﻿using Actor.DomainEvent;
 using Actor.ViewEvent;
 using Project;
 using Project.Event;
@@ -9,6 +9,12 @@ namespace Actor.EventHandler{
 
 		public ActorDomainEventHandler(){
 			EventBus.Subscribe<MoveInputDetected>(OnMoveInputDetected);
+			EventBus.Subscribe<ActorMoveConditionAdded>(OnMoveConditionAdded);
+		}
+
+		private void OnMoveConditionAdded(ActorMoveConditionAdded obj){
+			var moveCondition = obj.ActorMoveCondition;
+			_actor.AddMoveCondition(moveCondition);
 		}
 
 		private void OnMoveInputDetected(MoveInputDetected obj){

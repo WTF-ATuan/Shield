@@ -2,7 +2,7 @@
 using Project;
 using UnityEngine;
 
-namespace Actor{
+namespace Actor.Component.Application{
 	public class ActorInstaller : MonoBehaviour{
 		private void Awake(){
 			SingleRepository.Create<ActorDomainEventHandler>();
