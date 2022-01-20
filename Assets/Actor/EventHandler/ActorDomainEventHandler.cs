@@ -9,7 +9,13 @@ namespace Actor.EventHandler{
 
 		public ActorDomainEventHandler(){
 			EventBus.Subscribe<MoveInputDetected>(OnMoveInputDetected);
+			EventBus.Subscribe<DirectionInputDetected>(OnDirectionInputDetected);
 			EventBus.Subscribe<ActorMoveConditionAdded>(OnMoveConditionAdded);
+		}
+
+		private void OnDirectionInputDetected(DirectionInputDetected obj){
+			var targetPosition = obj.TargetPosition;
+			_actor.ChangeFaceDirection(targetPosition);
 		}
 
 		private void OnMoveConditionAdded(ActorMoveConditionAdded obj){

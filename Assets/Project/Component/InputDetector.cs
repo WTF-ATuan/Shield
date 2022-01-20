@@ -16,7 +16,8 @@ namespace Project.Component{
 			mousePos.z = Camera.main.nearClipPlane;
 			var worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
 			worldPosition.z = 0;
-			var mousePositionDetected = new DirectionInputDetected(worldPosition);
+			var positionNormalized = worldPosition.normalized;
+			var mousePositionDetected = new DirectionInputDetected(worldPosition , positionNormalized);
 			EventBus.Post(mousePositionDetected);
 		}
 

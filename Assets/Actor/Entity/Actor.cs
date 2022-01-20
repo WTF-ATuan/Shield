@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Actor.Entity.Behavior;
 using Actor.ResponseDTO;
+using UnityEngine;
 
 namespace Actor.Entity{
 	public class Actor{
@@ -10,6 +11,7 @@ namespace Actor.Entity{
 
 		private readonly List<IActorMoveCondition> _moveConditions = new();
 		private ActorMoveData _moveData;
+		private ActorDirectionData _directionData;
 
 		public Actor(string actorID){
 			ActorID = actorID;
@@ -34,6 +36,11 @@ namespace Actor.Entity{
 			if(notJump){
 				_moveData.IsJump = false;
 			}
+		}
+
+		public void ChangeFaceDirection(Vector3 targetPosition){
+			var targetDirection = targetPosition.normalized;
+			var targetStrength = targetPosition.magnitude;
 		}
 
 		public ActorMoveData GetMoveData(){
