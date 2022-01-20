@@ -13,6 +13,7 @@ namespace Actor.Component.Application{
 
 		private void EventHandler(){
 			EventBus.Subscribe<ActorMoved>(OnActorMoved);
+			
 		}
 
 		private void OnActorMoved(ActorMoved obj){

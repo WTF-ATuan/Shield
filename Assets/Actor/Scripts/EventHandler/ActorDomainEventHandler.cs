@@ -1,4 +1,5 @@
 ﻿using Actor.DomainEvent;
+using Actor.Scripts.ViewEvent;
 using Actor.ViewEvent;
 using Project;
 using Project.Event;
@@ -15,7 +16,11 @@ namespace Actor.EventHandler{
 
 		private void OnDirectionInputDetected(DirectionInputDetected obj){
 			var targetPosition = obj.TargetPosition;
-			_actor.ChangeFaceDirection(targetPosition);
+			_actor.ChangeDirection(targetPosition);
+			var actorDirectionData = _actor.GetDirectionData();
+			var actorID = _actor.ActorID;
+			var actorDirectionChanged = new ActorDirectionChanged(actorID, actorDirectionData);
+			EventBus.Post(actorDirectionChanged);
 		}
 
 		private void OnMoveConditionAdded(ActorMoveConditionAdded obj){

@@ -11,7 +11,7 @@ namespace Actor.Entity{
 
 		private readonly List<IActorMoveCondition> _moveConditions = new();
 		private ActorMoveData _moveData;
-		private ActorDirectionData _directionData;
+		private readonly ActorDirectionData _directionData = new();
 
 		public Actor(string actorID){
 			ActorID = actorID;
@@ -38,9 +38,15 @@ namespace Actor.Entity{
 			}
 		}
 
-		public void ChangeFaceDirection(Vector3 targetPosition){
+		public void ChangeDirection(Vector3 targetPosition){
 			var targetDirection = targetPosition.normalized;
 			var targetStrength = targetPosition.magnitude;
+			_directionData.Direction = targetDirection;
+			_directionData.Strength = targetStrength;
+		}
+
+		public ActorDirectionData GetDirectionData(){
+			return _directionData;
 		}
 
 		public ActorMoveData GetMoveData(){
