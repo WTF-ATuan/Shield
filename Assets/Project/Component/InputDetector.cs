@@ -16,25 +16,25 @@ namespace Project.Component{
 			mousePos.z = Camera.main.nearClipPlane;
 			var worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
 			worldPosition.z = 0;
-			var mousePositionDetected = new MousePositionDetected(worldPosition);
+			var mousePositionDetected = new DirectionInputDetected(worldPosition);
 			EventBus.Post(mousePositionDetected);
 		}
 
 		private void DetectRightMouseButton(){
-			var rightMouseButtonDown = Input.GetMouseButtonDown(0);
-			var rightMouseButton = Input.GetMouseButton(0);
-			var rightMouseButtonUp = Input.GetMouseButtonUp(0);
+			var rightMouseButtonDown = Input.GetMouseButtonDown(1);
+			var rightMouseButton = Input.GetMouseButton(1);
+			var rightMouseButtonUp = Input.GetMouseButtonUp(1);
 			var rightMouseInputDetected =
-					new MouseInputDetected(true, rightMouseButtonDown, rightMouseButton, rightMouseButtonUp);
+					new FireInputDetected(true, rightMouseButtonDown, rightMouseButton, rightMouseButtonUp);
 			EventBus.Post(rightMouseInputDetected);
 		}
 
 		private void DetectLeftMouseButton(){
-			var leftMouseButtonDown = Input.GetMouseButtonDown(1);
-			var leftMouseButton = Input.GetMouseButton(1);
-			var leftMouseButtonUp = Input.GetMouseButtonUp(1);
+			var leftMouseButtonDown = Input.GetMouseButtonDown(0);
+			var leftMouseButton = Input.GetMouseButton(0);
+			var leftMouseButtonUp = Input.GetMouseButtonUp(0);
 			var leftMouseInputDetected =
-					new MouseInputDetected(false, leftMouseButtonDown, leftMouseButton, leftMouseButtonUp);
+					new FireInputDetected(false, leftMouseButtonDown, leftMouseButton, leftMouseButtonUp);
 			EventBus.Post(leftMouseInputDetected);
 		}
 
