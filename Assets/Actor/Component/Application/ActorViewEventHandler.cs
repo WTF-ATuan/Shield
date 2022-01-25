@@ -1,4 +1,5 @@
-﻿using Actor.ViewEvent;
+﻿using Actor.Scripts.ViewEvent;
+using Actor.ViewEvent;
 using Project;
 using UnityEngine;
 
@@ -13,7 +14,14 @@ namespace Actor.Component.Application{
 
 		private void EventHandler(){
 			EventBus.Subscribe<ActorMoved>(OnActorMoved);
-			
+			EventBus.Subscribe<ActorDirectionChanged>(OnActorDirectionChanged);
+		}
+
+		private void OnActorDirectionChanged(ActorDirectionChanged obj){
+			var directionData = obj.ActorDirectionData;
+			var direction = directionData.Direction;
+			var strength = directionData.Strength;
+			_actorBehavior.SetFaceDirection(direction, strength);
 		}
 
 		private void OnActorMoved(ActorMoved obj){
